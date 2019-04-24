@@ -8,6 +8,11 @@ target 'Idea' do
   # Pods for Idea
 
 pod 'Firebase/Core'
+pod 'FirebaseUI'
+pod 'FirebaseUI/Auth'
+
+pod 'FirebaseUI/Google'
+pod 'FirebaseUI/Facebook'
 
 
 
