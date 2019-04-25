@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>233378082886-br603qqqmqcue7o7qb0eevua2qk8f42s.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.233378082886-br603qqqmqcue7o7qb0eevua2qk8f42s</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBmyyeuaYpKfYmGsc-u3wUXoiMyjxfL24E</string>
+	<key>GCM_SENDER_ID</key>
+	<string>233378082886</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.smf.Idea</string>
+	<key>PROJECT_ID</key>
+	<string>ideawish2019</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ideawish2019.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:233378082886:ios:03a7b5751f084f88</string>
+	<key>DATABASE_URL</key>
+	<string>https://ideawish2019.firebaseio.com</string>
+</dict>
+</plist>

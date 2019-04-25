@@ -34,7 +34,7 @@ class FirstStartVC: UIViewController {
         self.iconApp.translatesAutoresizingMaskIntoConstraints = true
         
         iconApp.frame = CGRect(x: 150, y: -10, width: 0, height: 0)
-        UIView.animate(withDuration: 4, animations: {
+        UIView.animate(withDuration: 7, animations: {
             self.iconApp.frame = CGRect(x: (self.view.frame.width - 240)/2, y: 35, width: 240, height: 240)
         }) { _ in
             UIView.animate(withDuration: 2, animations: {

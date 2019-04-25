@@ -10,7 +10,10 @@
 		87040B04226D121600AE3421 /* WishCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87040B03226D121600AE3421 /* WishCardVC.swift */; };
 		87040B06226D122E00AE3421 /* NewWishCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87040B05226D122E00AE3421 /* NewWishCardVC.swift */; };
 		87040B09226D139B00AE3421 /* ZoomedPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87040B08226D139B00AE3421 /* ZoomedPhotoViewController.swift */; };
-		8705F251226F33930014B851 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8705F250226F33920014B851 /* GoogleService-Info.plist */; };
+		872DD6542271BBC000127C8F /* Reg.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 872DD6532271BBC000127C8F /* Reg.storyboard */; };
+		872DD6572271BC6A00127C8F /* RegMailFaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872DD6562271BC6A00127C8F /* RegMailFaceVC.swift */; };
+		872DD6592271E2EF00127C8F /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872DD6582271E2EF00127C8F /* WelcomeVC.swift */; };
+		872DD65B2271EA7200127C8F /* ForgotPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872DD65A2271EA7200127C8F /* ForgotPassVC.swift */; };
 		873AED37225A398F007B2C40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873AED36225A398F007B2C40 /* AppDelegate.swift */; };
 		873AED3C225A398F007B2C40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873AED3A225A398F007B2C40 /* Main.storyboard */; };
 		873AED3E225A3991007B2C40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873AED3D225A3991007B2C40 /* Assets.xcassets */; };
@@ -21,7 +24,8 @@
 		873AED51225A6A64007B2C40 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873AED50225A6A64007B2C40 /* SettingsVC.swift */; };
 		873AED54225A73B6007B2C40 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873AED53225A73B6007B2C40 /* FavoriteVC.swift */; };
 		87577D3E2268BBEC00E7CF98 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87577D3D2268BBEC00E7CF98 /* RegistrationVC.swift */; };
-		87577D422268D19400E7CF98 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87577D402268D19400E7CF98 /* ViewExtension.swift */; };
+		87E569E022708A310059C234 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87E569DF22708A310059C234 /* GoogleService-Info.plist */; };
+		87E569E42270990A0059C234 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E569E32270990A0059C234 /* ViewExtension.swift */; };
 		87FA1DF822679AD100D4DE6C /* FirstStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FA1DF722679AD100D4DE6C /* FirstStartVC.swift */; };
 		87FC8B14226BAD3900A29C77 /* FrindProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC8B13226BAD3900A29C77 /* FrindProfileVC.swift */; };
 		96BD87A4255E5A4916F07039 /* Pods_Idea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30039FC741A9718D832B57DB /* Pods_Idea.framework */; };
@@ -32,7 +36,10 @@
 		87040B03226D121600AE3421 /* WishCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCardVC.swift; sourceTree = "<group>"; };
 		87040B05226D122E00AE3421 /* NewWishCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWishCardVC.swift; sourceTree = "<group>"; };
 		87040B08226D139B00AE3421 /* ZoomedPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedPhotoViewController.swift; sourceTree = "<group>"; };
-		8705F250226F33920014B851 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		872DD6532271BBC000127C8F /* Reg.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reg.storyboard; sourceTree = "<group>"; };
+		872DD6562271BC6A00127C8F /* RegMailFaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegMailFaceVC.swift; sourceTree = "<group>"; };
+		872DD6582271E2EF00127C8F /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		872DD65A2271EA7200127C8F /* ForgotPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassVC.swift; sourceTree = "<group>"; };
 		873AED33225A398F007B2C40 /* Idea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Idea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		873AED36225A398F007B2C40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		873AED3B225A398F007B2C40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,7 +52,8 @@
 		873AED50225A6A64007B2C40 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		873AED53225A73B6007B2C40 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		87577D3D2268BBEC00E7CF98 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
-		87577D402268D19400E7CF98 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewExtension.swift; path = ../../Extention/ViewExtension.swift; sourceTree = "<group>"; };
+		87E569DF22708A310059C234 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		87E569E32270990A0059C234 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewExtension.swift; path = "../../../Desktop/IOS development/Projects/Extention/ViewExtension.swift"; sourceTree = "<group>"; };
 		87FA1DF722679AD100D4DE6C /* FirstStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartVC.swift; sourceTree = "<group>"; };
 		87FC8B13226BAD3900A29C77 /* FrindProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrindProfileVC.swift; sourceTree = "<group>"; };
 		92A5A172F53843C62EBAA6CD /* Pods-Idea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Idea.release.xcconfig"; path = "Target Support Files/Pods-Idea/Pods-Idea.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +92,7 @@
 		87040AFE226D119900AE3421 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				87E569E32270990A0059C234 /* ViewExtension.swift */,
 				873AED50225A6A64007B2C40 /* SettingsVC.swift */,
 			);
 			path = Settings;
@@ -95,6 +104,17 @@
 				87040B08226D139B00AE3421 /* ZoomedPhotoViewController.swift */,
 			);
 			path = ZoomingPhoto;
+			sourceTree = "<group>";
+		};
+		872DD6552271BC2400127C8F /* RegistrationMailAndFacebook */ = {
+			isa = PBXGroup;
+			children = (
+				872DD6532271BBC000127C8F /* Reg.storyboard */,
+				872DD6562271BC6A00127C8F /* RegMailFaceVC.swift */,
+				872DD6582271E2EF00127C8F /* WelcomeVC.swift */,
+				872DD65A2271EA7200127C8F /* ForgotPassVC.swift */,
+			);
+			path = RegistrationMailAndFacebook;
 			sourceTree = "<group>";
 		};
 		873AED2A225A398F007B2C40 = {
@@ -120,15 +140,15 @@
 			children = (
 				873AED36225A398F007B2C40 /* AppDelegate.swift */,
 				873AED3A225A398F007B2C40 /* Main.storyboard */,
+				872DD6552271BC2400127C8F /* RegistrationMailAndFacebook */,
 				87040AFD226D117600AE3421 /* FirstStart */,
 				873AED52225A6A87007B2C40 /* MainControllers */,
 				87040AFE226D119900AE3421 /* Settings */,
-				87577D402268D19400E7CF98 /* ViewExtension.swift */,
 				87040B07226D137600AE3421 /* ZoomingPhoto */,
 				873AED3D225A3991007B2C40 /* Assets.xcassets */,
 				873AED3F225A3991007B2C40 /* LaunchScreen.storyboard */,
 				873AED42225A3991007B2C40 /* Info.plist */,
-				8705F250226F33920014B851 /* GoogleService-Info.plist */,
+				87E569DF22708A310059C234 /* GoogleService-Info.plist */,
 			);
 			path = Idea;
 			sourceTree = "<group>";
@@ -153,7 +173,6 @@
 				E503C0C9560A5AB8CD28C5E9 /* Pods-Idea.debug.xcconfig */,
 				92A5A172F53843C62EBAA6CD /* Pods-Idea.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -219,7 +238,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				873AED41225A3991007B2C40 /* LaunchScreen.storyboard in Resources */,
-				8705F251226F33930014B851 /* GoogleService-Info.plist in Resources */,
+				87E569E022708A310059C234 /* GoogleService-Info.plist in Resources */,
+				872DD6542271BBC000127C8F /* Reg.storyboard in Resources */,
 				873AED3E225A3991007B2C40 /* Assets.xcassets in Resources */,
 				873AED3C225A398F007B2C40 /* Main.storyboard in Resources */,
 			);
@@ -351,12 +371,15 @@
 				87FA1DF822679AD100D4DE6C /* FirstStartVC.swift in Sources */,
 				873AED4D225A6A38007B2C40 /* FolowersVC.swift in Sources */,
 				87577D3E2268BBEC00E7CF98 /* RegistrationVC.swift in Sources */,
+				872DD6592271E2EF00127C8F /* WelcomeVC.swift in Sources */,
 				87040B09226D139B00AE3421 /* ZoomedPhotoViewController.swift in Sources */,
-				87577D422268D19400E7CF98 /* ViewExtension.swift in Sources */,
 				873AED37225A398F007B2C40 /* AppDelegate.swift in Sources */,
 				87040B04226D121600AE3421 /* WishCardVC.swift in Sources */,
+				87E569E42270990A0059C234 /* ViewExtension.swift in Sources */,
 				873AED4F225A6A52007B2C40 /* ContactsVC.swift in Sources */,
+				872DD6572271BC6A00127C8F /* RegMailFaceVC.swift in Sources */,
 				873AED54225A73B6007B2C40 /* FavoriteVC.swift in Sources */,
+				872DD65B2271EA7200127C8F /* ForgotPassVC.swift in Sources */,
 				873AED51225A6A64007B2C40 /* SettingsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

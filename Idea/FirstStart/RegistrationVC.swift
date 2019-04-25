@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationVC: UIViewController {
 
@@ -25,6 +26,7 @@ class RegistrationVC: UIViewController {
     @IBOutlet weak var txtDatePicker: UITextField!
     let datePicker = UIDatePicker()
 
+    @IBOutlet weak var birthIcon: UIImageView!
     
     @IBOutlet weak var hintAbout: UILabel!
     @IBOutlet weak var aboutField: UITextView!
@@ -45,6 +47,7 @@ class RegistrationVC: UIViewController {
         numberField.alpha = 0
         nameField.alpha = 0
         txtDatePicker.alpha = 0
+        birthIcon.alpha = 0
         hintAbout.alpha = 0
         aboutField.alpha = 0
         regButton.alpha = 0
@@ -73,7 +76,10 @@ class RegistrationVC: UIViewController {
                                     self.txtDatePicker.alpha = 1
                             }){ _ in
                                 UIView.animate(withDuration: 0.2, animations: {
-                                    self.hintAbout.alpha = 1
+                                    self.birthIcon.alpha = 1
+                                }){ _ in
+                                    UIView.animate(withDuration: 0.2, animations: {
+                                        self.hintAbout.alpha = 1
                                 }){ _ in
                                     UIView.animate(withDuration: 0.1, animations: {
                                         self.aboutField.alpha = 1
@@ -82,6 +88,7 @@ class RegistrationVC: UIViewController {
                                             self.regButton.alpha = 1
 
                                         })
+                                    }
                                     }
                                 }
                                 }
@@ -130,7 +137,18 @@ class RegistrationVC: UIViewController {
         self.view.endEditing(true)
     }
 
-
+    @IBAction func phoneSignIn(_ sender: Any){
+         let phoneNumber = numberField.text
+        
+        PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber!, uiDelegate: nil) { (verificationId, error) in
+            if error == nil{
+                print(verificationId)
+            } else {
+                print("Unable to get Secret Verification Code from firebase", error?.localizedDescription)
+            }
+        }
+    
+    }
 
     /*
     // MARK: - Navigation
