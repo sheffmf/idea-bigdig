@@ -10,13 +10,27 @@ import UIKit
 
 class NewWishCardVC: UIViewController {
 
+    @IBOutlet weak var nameWish: UIVisualEffectView!
+    @IBOutlet weak var aboutField: UITextView!
+    @IBOutlet weak var whereBuy: UITextView!
+    @IBOutlet weak var linkField: UITextView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func AddNewPhoto(_ sender: Any) {
+    }
+    
+    @IBAction func addOldPhoto(_ sender: Any) {
+    }
     /*
     // MARK: - Navigation
 

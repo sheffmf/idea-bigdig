@@ -1,29 +1,23 @@
 //
-//  SettingsVC.swift
+//  TabBarController.swift
 //  Idea
 //
-//  Created by Aleksandr Kovalchuk on 07.04.2019.
+//  Created by Aleksandr Kovalchuk on 25.04.2019.
 //  Copyright © 2019 Aleksandr Kovalchuk. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-class SettingsVC: UIViewController {
+class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.selectedIndex = 2
     }
-    @IBAction func logoutAction(_ sender: Any) {
-        do{
-            try Auth.auth().signOut()
-            
-        }catch{
-            print(error)
-        }
-    }
+    
 
     /*
     // MARK: - Navigation

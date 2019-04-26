@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileVC: UIViewController {
-
+    @IBOutlet weak var imagePhoto: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagePhoto.layer.cornerRadius = 100
+        
 
         // Do any additional setup after loading the view.
     }
@@ -19,6 +24,18 @@ class ProfileVC: UIViewController {
     @IBAction func openZoomingController(_ sender: AnyObject) {
         self.performSegue(withIdentifier: "zooming", sender: nil)//imageView.image)
     }
+    
+    @IBAction func logoutButton(_ sender: Any) {
+        do{
+            try Auth.auth().signOut()
+            
+        }catch{
+            print(error)
+        }
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

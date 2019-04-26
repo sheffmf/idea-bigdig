@@ -24,15 +24,19 @@
 		873AED51225A6A64007B2C40 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873AED50225A6A64007B2C40 /* SettingsVC.swift */; };
 		873AED54225A73B6007B2C40 /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873AED53225A73B6007B2C40 /* FavoriteVC.swift */; };
 		87577D3E2268BBEC00E7CF98 /* RegistrationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87577D3D2268BBEC00E7CF98 /* RegistrationVC.swift */; };
+		87AEE09B22723C9600959B25 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87AEE09A22723C9600959B25 /* TabBarController.swift */; };
 		87E569E022708A310059C234 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87E569DF22708A310059C234 /* GoogleService-Info.plist */; };
 		87E569E42270990A0059C234 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E569E32270990A0059C234 /* ViewExtension.swift */; };
 		87FA1DF822679AD100D4DE6C /* FirstStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FA1DF722679AD100D4DE6C /* FirstStartVC.swift */; };
 		87FC8B14226BAD3900A29C77 /* FrindProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FC8B13226BAD3900A29C77 /* FrindProfileVC.swift */; };
+		87FD1F6E2272E34A00904AF6 /* VerifyVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FD1F6D2272E34A00904AF6 /* VerifyVCViewController.swift */; };
+		87FD1F712272F6F100904AF6 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87FD1F702272F6F100904AF6 /* Users.swift */; };
 		96BD87A4255E5A4916F07039 /* Pods_Idea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30039FC741A9718D832B57DB /* Pods_Idea.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		30039FC741A9718D832B57DB /* Pods_Idea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Idea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		870080332272352B005F8103 /* Idea.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Idea.entitlements; sourceTree = "<group>"; };
 		87040B03226D121600AE3421 /* WishCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishCardVC.swift; sourceTree = "<group>"; };
 		87040B05226D122E00AE3421 /* NewWishCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWishCardVC.swift; sourceTree = "<group>"; };
 		87040B08226D139B00AE3421 /* ZoomedPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedPhotoViewController.swift; sourceTree = "<group>"; };
@@ -52,10 +56,13 @@
 		873AED50225A6A64007B2C40 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		873AED53225A73B6007B2C40 /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
 		87577D3D2268BBEC00E7CF98 /* RegistrationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationVC.swift; sourceTree = "<group>"; };
+		87AEE09A22723C9600959B25 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		87E569DF22708A310059C234 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87E569E32270990A0059C234 /* ViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewExtension.swift; path = "../../../Desktop/IOS development/Projects/Extention/ViewExtension.swift"; sourceTree = "<group>"; };
 		87FA1DF722679AD100D4DE6C /* FirstStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStartVC.swift; sourceTree = "<group>"; };
 		87FC8B13226BAD3900A29C77 /* FrindProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrindProfileVC.swift; sourceTree = "<group>"; };
+		87FD1F6D2272E34A00904AF6 /* VerifyVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyVCViewController.swift; sourceTree = "<group>"; };
+		87FD1F702272F6F100904AF6 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		92A5A172F53843C62EBAA6CD /* Pods-Idea.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Idea.release.xcconfig"; path = "Target Support Files/Pods-Idea/Pods-Idea.release.xcconfig"; sourceTree = "<group>"; };
 		E503C0C9560A5AB8CD28C5E9 /* Pods-Idea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Idea.debug.xcconfig"; path = "Target Support Files/Pods-Idea/Pods-Idea.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +92,7 @@
 			children = (
 				87FA1DF722679AD100D4DE6C /* FirstStartVC.swift */,
 				87577D3D2268BBEC00E7CF98 /* RegistrationVC.swift */,
+				87FD1F6D2272E34A00904AF6 /* VerifyVCViewController.swift */,
 			);
 			path = FirstStart;
 			sourceTree = "<group>";
@@ -138,15 +146,18 @@
 		873AED35225A398F007B2C40 /* Idea */ = {
 			isa = PBXGroup;
 			children = (
+				870080332272352B005F8103 /* Idea.entitlements */,
 				873AED36225A398F007B2C40 /* AppDelegate.swift */,
 				873AED3A225A398F007B2C40 /* Main.storyboard */,
-				872DD6552271BC2400127C8F /* RegistrationMailAndFacebook */,
+				87FD1F6F2272F6C400904AF6 /* Models */,
+				87AEE09922723C7500959B25 /* TabController */,
 				87040AFD226D117600AE3421 /* FirstStart */,
 				873AED52225A6A87007B2C40 /* MainControllers */,
 				87040AFE226D119900AE3421 /* Settings */,
 				87040B07226D137600AE3421 /* ZoomingPhoto */,
-				873AED3D225A3991007B2C40 /* Assets.xcassets */,
+				872DD6552271BC2400127C8F /* RegistrationMailAndFacebook */,
 				873AED3F225A3991007B2C40 /* LaunchScreen.storyboard */,
+				873AED3D225A3991007B2C40 /* Assets.xcassets */,
 				873AED42225A3991007B2C40 /* Info.plist */,
 				87E569DF22708A310059C234 /* GoogleService-Info.plist */,
 			);
@@ -165,6 +176,22 @@
 				87040B05226D122E00AE3421 /* NewWishCardVC.swift */,
 			);
 			path = MainControllers;
+			sourceTree = "<group>";
+		};
+		87AEE09922723C7500959B25 /* TabController */ = {
+			isa = PBXGroup;
+			children = (
+				87AEE09A22723C9600959B25 /* TabBarController.swift */,
+			);
+			path = TabController;
+			sourceTree = "<group>";
+		};
+		87FD1F6F2272F6C400904AF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				87FD1F702272F6F100904AF6 /* Users.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C33F5BD67D29BA3F6B3454E0 /* Pods */ = {
@@ -211,6 +238,11 @@
 				TargetAttributes = {
 					873AED32225A398F007B2C40 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -371,11 +403,14 @@
 				87FA1DF822679AD100D4DE6C /* FirstStartVC.swift in Sources */,
 				873AED4D225A6A38007B2C40 /* FolowersVC.swift in Sources */,
 				87577D3E2268BBEC00E7CF98 /* RegistrationVC.swift in Sources */,
+				87AEE09B22723C9600959B25 /* TabBarController.swift in Sources */,
 				872DD6592271E2EF00127C8F /* WelcomeVC.swift in Sources */,
 				87040B09226D139B00AE3421 /* ZoomedPhotoViewController.swift in Sources */,
 				873AED37225A398F007B2C40 /* AppDelegate.swift in Sources */,
 				87040B04226D121600AE3421 /* WishCardVC.swift in Sources */,
+				87FD1F712272F6F100904AF6 /* Users.swift in Sources */,
 				87E569E42270990A0059C234 /* ViewExtension.swift in Sources */,
+				87FD1F6E2272E34A00904AF6 /* VerifyVCViewController.swift in Sources */,
 				873AED4F225A6A52007B2C40 /* ContactsVC.swift in Sources */,
 				872DD6572271BC6A00127C8F /* RegMailFaceVC.swift in Sources */,
 				873AED54225A73B6007B2C40 /* FavoriteVC.swift in Sources */,
@@ -527,7 +562,9 @@
 			baseConfigurationReference = E503C0C9560A5AB8CD28C5E9 /* Pods-Idea.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Idea/Idea.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4ADJV2G2S6;
 				INFOPLIST_FILE = Idea/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -545,7 +582,9 @@
 			baseConfigurationReference = 92A5A172F53843C62EBAA6CD /* Pods-Idea.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Idea/Idea.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4ADJV2G2S6;
 				INFOPLIST_FILE = Idea/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
