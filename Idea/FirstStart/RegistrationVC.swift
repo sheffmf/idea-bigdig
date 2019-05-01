@@ -211,7 +211,7 @@ class RegistrationVC: UIViewController,UIImagePickerControllerDelegate,UINavigat
                     "telNumber": number,
                     "userName": name,
                     "dateOfBirth": data,
-                    "UID": Auth.auth().currentUser?.uid as? Any
+                    "UID": currentUser as? Any
                     //"myImageURL": url
                 ]) { err in
                     if let err = err {
