@@ -7,9 +7,23 @@
 //
 
 import UIKit
+import Contacts
 
 class FrindProfileVC: UIViewController {
 
+
+    @IBOutlet weak var imagePhoto: UIImageView!
+    @IBOutlet weak var nameContact: UILabel!
+    @IBOutlet weak var aboutField: UITextView!
+    @IBOutlet weak var zodiacLogo: UIImageView!
+    @IBOutlet weak var dateOfBirth: UILabel!
+    @IBOutlet weak var age: UILabel!
+    
+    
+    let nameString = ""
+    let aboutString = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

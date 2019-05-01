@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class FirstStartVC: UIViewController {
 
@@ -67,11 +68,22 @@ class FirstStartVC: UIViewController {
                 self.show()
             }
         }
-
+    @IBAction func closeVC(_ sender: Any){
+    self.dismiss(animated: true, completion: nil)
+    }
+//    func closeVC(){
+//        Auth.auth().addStateDidChangeListener { (auth, user) in
+//            if user != nil{
+//                self.dismiss(animated: true, completion: nil)
+//
+//            }
+//        }
+    //}
         // Do any additional setup after loading the view.
     }
     
 
    
+
 
 

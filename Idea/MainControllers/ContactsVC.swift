@@ -37,12 +37,16 @@ class ContactsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             print("unable to fetch contacts")
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFriendsProfile"{
+            let vc = segue.destination as! FrindProfileVC
+            //vc.nameString = sender as! String
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "showFriendsProfile"{
 //            let vc = segue.destination as!
 //            vc.textString = sender as! String
-//        }
-//    }
+        }
+   }
     
     
     //Func of delegate - section
@@ -65,11 +69,12 @@ class ContactsVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        self.performSegue(withIdentifier: "showDetails", sender: nil)
+        let cont = contacts[indexPath.row]
+
+        self.performSegue(withIdentifier: "showFriendsProfile", sender: "\(cont.givenName)"
+        )
     }
 
-    @IBAction func openZoomingController(_ sender: AnyObject) {
-        self.performSegue(withIdentifier: "zooming", sender: nil)//imageView.image)
-    }
+   
+
 }
