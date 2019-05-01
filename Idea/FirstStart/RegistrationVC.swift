@@ -207,7 +207,7 @@ class RegistrationVC: UIViewController,UIImagePickerControllerDelegate,UINavigat
                 let db = Firestore.firestore()
                 var ref: DocumentReference? = nil
                 let currentUser = Auth.auth().currentUser?.uid
-                ref = db.collection("users").addDocument(data: [
+                ref = db.collection(currentUser!).addDocument(data: [
                     "telNumber": number,
                     "userName": name,
                     "dateOfBirth": data,

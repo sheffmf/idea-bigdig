@@ -51,9 +51,9 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
 //                    }
 //                }
 //        }
-        let num = kCFURLDocumentIdentifierKey
+        let num = Auth.auth().currentUser?.uid
         let key = UserDefaults.standard.value(forKey: "num") as? String ?? "Null" // Unique user key
-        let docRef = db.collection("users").document(key)
+        let docRef = db.collection("num").document(key)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let docData = document.data()
@@ -96,6 +96,8 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         let profileImagePicker = UIImagePickerController()
         profileImagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         //profileImagePicker.mediaTypes = [kUTTypeImage as String]
+        profileImagePicker.allowsEditing = true
+
         profileImagePicker.delegate = self
         present(profileImagePicker, animated: true, completion: nil)
     }
@@ -105,11 +107,20 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         picker.dismiss(animated: true, completion:nil)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImageFromPicker: UIImage?
         
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.imagePhoto.contentMode = .scaleAspectFit
-            self.imagePhoto.image = pickedImage
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            selectedImageFromPicker = editedImage
+        }else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            selectedImageFromPicker = originalImage
         }
+        if let selectedImage = selectedImageFromPicker{
+            imagePhoto.image = selectedImage
+        }
+//        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+//            self.imagePhoto.contentMode = .scaleAspectFit
+//            self.imagePhoto.image = pickedImage
+//        }
         
         dismiss(animated: true, completion: nil)
     }
