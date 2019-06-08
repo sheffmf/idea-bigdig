@@ -97,7 +97,7 @@ class RegistrationVC: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     @objc func donedatePicker(){
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "dd.mm.yyyy"
         txtDatePicker.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
@@ -188,6 +188,7 @@ class RegistrationVC: UIViewController,UIImagePickerControllerDelegate,UINavigat
         let number = numberField.text!
         let data = txtDatePicker.text!
         let cod = codField.text!
+        let about = aboutField.text!
         //let url = Storage.storage().reference().child("myImage.png")
         if name.isEmpty && number.isEmpty && data.isEmpty && cod.isEmpty{
         showAlert()
@@ -200,18 +201,23 @@ class RegistrationVC: UIViewController,UIImagePickerControllerDelegate,UINavigat
                 // Add a new document with a generated ID
                 //FirebaseApp.configure()
                 
-                UserDefaults.standard.set(Auth.auth().currentUser!.uid, forKey: "phoneNumber")
-                
-                UserDefaults.standard.synchronize()
+//                UserDefaults.standard.set(Auth.auth().currentUser!.phoneNumber, forKey: "phoneNumber")
+//
+//                UserDefaults.standard.synchronize()
                 
                 let db = Firestore.firestore()
                 var ref: DocumentReference? = nil
-                let currentUser = Auth.auth().currentUser?.uid
-                ref = db.collection(currentUser!).addDocument(data: [
+                
+                let currentUser = Auth.auth().currentUser?.uid as! String
+                
+                //ref = db.collection("users").document("currentUser").collection("name")
+                ref = db.collection("usersAuth/\(String(describing: currentUser))/userInfo").addDocument(data: [
                     "telNumber": number,
                     "userName": name,
+                    "About": about,
                     "dateOfBirth": data,
                     "UID": currentUser as? Any
+                    
                     //"myImageURL": url
                 ]) { err in
                     if let err = err {

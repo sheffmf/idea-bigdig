@@ -30,59 +30,173 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference()
-        db = Firestore.firestore()
-
-
+        //ref = Database.database().reference()
+        //db = Firestore.firestore()
+        //MARK: Animation
         imagePhoto.layer.cornerRadius = imagePhoto.frame.size.width/2
-        //imagePhoto.layer.cornerRadius = 25
         imagePhoto.clipsToBounds = true
+        //MARK: Autentifiacion controll
         checkPermission()
+        //MARK: Get data from database firestore
+        let db = Firestore.firestore()
+        var ref: DocumentReference? = nil
+        let userID = Auth.auth().currentUser?.uid ?? "Null"
         
-        //let uid = Auth.auth().currentUser?.uid
-
-//        db.collection("users").document(uid ?? "UID not yet loaded in viewDidLoad()")
-//            .addSnapshotListener { snapshot, error in
-//                if error != nil {
-//                    print(error ?? "Couldn't update text field TextUser according to database")
-//                } else {
-//                    if let dbUsername = snapshot?["userName"] as? String {
-//                        self.nameLabel?.text = dbUsername
-//                    }
-//                }
-//        }
-        let num = Auth.auth().currentUser?.uid
-        let key = UserDefaults.standard.value(forKey: "num") as? String ?? "Null" // Unique user key
-        let docRef = db.collection("num").document(key)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let docData = document.data()
-                let status = docData!["userName"] as? String ?? ""
-                self.nameLabel?.text = status
+        db.collection("usersAuth").document(userID).collection("userInfo").whereField("UID", isEqualTo: userID).getDocuments { (snapshot, error) in
+            if error != nil {
+                print(error)
             } else {
-                print("Document does not exist")
-                print(key)
-                print(num)
-                //print(UserDefaults.standard.dictionaryRepresentation())
-                
+                for document in (snapshot?.documents)!{
+                    if let name = document.data()["userName"] as? String{
+                        if let dateBirth = document.data()["dateOfBirth"] as? String{
+                        print(name)
+                        self.nameLabel?.text = name
+                        self.dateOfBirth?.text = dateBirth
+                            let age  = getAgeFromDOF(date: dateBirth)
+                            self.age?.text = "\(age.0) years"
+                            let zodiac = getSignoZodiacal(date: dateBirth)
+                            print(zodiac)
+                           
+                            
+                    }
+                }
             }
         }
-
-//        let user = Auth.auth().currentUser?.uid
-//        let textString = db.collection("users").whereField("userName", isEqualTo: nameLabel)
-
+            
+        }
+        
+        //MARK: Get AGE whith date of birth
+        func getAgeFromDOF(date: String) -> (Int,Int,Int) {
+            
+            let dateFormater = DateFormatter()
+            dateFormater.dateFormat = "dd.MM.yyyy"
+            let dateOfBirth = dateFormater.date(from: date)
+            
+            let calender = Calendar.current
+            
+            let dateComponent = calender.dateComponents([.year, .month, .day], from:
+                dateOfBirth!, to: Date())
+            
+            return (dateComponent.year!, dateComponent.month!, dateComponent.day!)
+        }
+        func getSignoZodiacal(date:String) -> String {
+            
+            let f = date.components(separatedBy: ".")
+            let dia = Int(f[0])
+            let mes = Int(f[1])
+            
+            
+            if mes == 1 {
+                if dia! >= 21 {
+                    self.zodiacLogo.image = UIImage(named: "aquarius")
+                    return "Aquarius"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "capricorn")
+                    return "Capricorn"
+                }
+            }else if mes == 2 {
+                if dia! >= 20 {
+                    self.zodiacLogo.image = UIImage(named: "pisces")
+                    return "Pisces"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "aquarius")
+                    return "Aquarius"
+                }
+            }else if mes == 3 {
+                if dia! >= 21 {
+                    self.zodiacLogo.image = UIImage(named: "aries")
+                    return "Aries"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "pisces")
+                    return "Pisces"
+                }
+            }else if mes == 4 {
+                if dia! >= 21 {
+                    self.zodiacLogo.image = UIImage(named: "taurus")
+                    return "Taurus"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "aries")
+                    return "Aries"
+                }
+            }else if mes == 5 {
+                if dia! >= 22 {
+                    self.zodiacLogo.image = UIImage(named: "gemini")
+                    return "Gemini"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "taurus")
+                    return "Taurus"
+                }
+            }else if mes == 6 {
+                if dia! >= 22 {
+                    self.zodiacLogo.image = UIImage(named: "cancer")
+                    return "Cancer"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "gemini")
+                    return "Gemini"
+                }
+            }else if mes == 7 {
+                if dia! >= 23 {
+                    self.zodiacLogo.image = UIImage(named: "leo")
+                    return "Leo"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "cancer")
+                    return "Cancer"
+                }
+            }else if mes == 8 {
+                if dia! >= 23 {
+                    self.zodiacLogo.image = UIImage(named: "virgo")
+                    return "Virgo"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "leo")
+                    return "Leo"
+                }
+            }else if mes == 9 {
+                if dia! >= 24 {
+                    self.zodiacLogo.image = UIImage(named: "libra")
+                    return "Libra"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "virgo")
+                    return "Virgo"
+                }
+            }else if mes == 10 {
+                if dia! >= 24 {
+                    self.zodiacLogo.image = UIImage(named: "scorpio")
+                    return "Scorpio"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "libra")
+                    return "Libra"
+                }
+            }else if mes == 11 {
+                if dia! >= 23 {
+                    self.zodiacLogo.image = UIImage(named: "sagittarius")
+                    return "Sagittarius"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "scorpio")
+                    return "Scorpio"
+                }
+            }else if mes == 12 {
+                if dia! >= 22 {
+                    self.zodiacLogo.image = UIImage(named: "capricorn")
+                    return "Capricorn"
+                }else {
+                    self.zodiacLogo.image = UIImage(named: "sagittarius")
+                    return "Sagittarius"
+                }
+            }
+            return ""
+        }
         // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+    //MARK: ZOOM photo for tap
     @IBAction func openZoomingController(_ sender: AnyObject) {
         self.performSegue(withIdentifier: "zooming", sender: nil)//imageView.image)
     }
     
     
-    
+    //Logaut
     @IBAction func logoutButton(_ sender: Any) {
         do{
             try Auth.auth().signOut()
@@ -91,7 +205,7 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             print(error)
         }
     }
-    
+    // ADD new PHoto profile
     @IBAction func setProfileImageButtonTapped(_ sender: Any) {
         let profileImagePicker = UIImagePickerController()
         profileImagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
@@ -100,12 +214,13 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
 
         profileImagePicker.delegate = self
         present(profileImagePicker, animated: true, completion: nil)
+        
     }
-
+    //MARK: Cancell button
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
     {
         picker.dismiss(animated: true, completion:nil)
-    }
+    }//Editing
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         var selectedImageFromPicker: UIImage?
         
@@ -116,30 +231,43 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         }
         if let selectedImage = selectedImageFromPicker{
             imagePhoto.image = selectedImage
+            //uploadProfileImage(imageData: selectedImageFromPicker)
         }
-//        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//            self.imagePhoto.contentMode = .scaleAspectFit
-//            self.imagePhoto.image = pickedImage
-//        }
-        
         dismiss(animated: true, completion: nil)
-    }
+        
+    
+    //MARK: Upload photo to database
+        func upload(images: [Data], albumId: String, completion: @escaping () -> ()) {
+            let imagesCollectionRef = Firestore.firestore().collection("images")
+            let createImagesBatch = Firestore.firestore().batch()
+            var data = Data()
+            images.forEach { imageData in
+                let docRef = imagesCollectionRef.document()
+                let data = ["albumId": albumId, "dateAdded": Timestamp(date: Date()), "status": "pending"] as [String : Any]
+                createImagesBatch.setData(data, forDocument: docRef)
+            }
+            
+            createImagesBatch.commit { _ in
+                completion()
+            }
+        }
+        
+        
     func uploadProfileImage(imageData: Data)
     {
-        
-        
         let storageReference = Storage.storage().reference()
         let currentUser = Auth.auth().currentUser
         let profileImageRef = storageReference.child("users").child(currentUser!.uid).child("\(currentUser!.uid)-profileImage.jpg")
+        var data = Data()
         
         let uploadMetaData = StorageMetadata()
         uploadMetaData.contentType = "image/jpeg"
         
         profileImageRef.putData(imageData, metadata: uploadMetaData) { (uploadedImageMeta, error) in
             
-//            activityIndicator.stopAnimating()
-//            activityIndicator.removeFromSuperview()
-            
+//            UIActivityIndicatorView.stopAnimating()
+//            UIActivityIndicatorView.removeFromSuperview()
+//
             if error != nil
             {
                 print("Error took place \(String(describing: error?.localizedDescription))")
@@ -152,6 +280,8 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             }
         }
     }
+    }
+    //MARK: AUtentification controll func
     func checkPermission() {
         let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
         switch photoAuthorizationStatus {
@@ -176,3 +306,4 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         }
     }
 }
+
