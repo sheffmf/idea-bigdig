@@ -11,11 +11,45 @@ import Firebase
 import PhotosUI
 import Photos
 
+struct Sourse {
+    var name: String
+    var docId: String
+    
+    var dictionary: [String: Any] {
+        return [
+            "nameOfWish": name,
+            "UID": docId
+        ]
+    }
+}
 
-class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITableViewDataSource,UITableViewDelegate {
+     func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return sourseArray.count
+    }
+    
+    
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "wishCell", for: indexPath)
+        
+        let sourse = sourseArray[indexPath.row]
+        
+        cell.textLabel?.text = "\(sourse.name)"
+        cell.detailTextLabel?.text = "\(sourse.docId)"
+        
+        return cell
+    }
+    
     
     var ref:DatabaseReference?
     var db: Firestore!
+    var sourseArray = [Sourse]()
+
 
     
     
@@ -27,12 +61,14 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var aboutField: UITextView!
     
+    @IBOutlet weak var wishTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //ref = Database.database().reference()
         //db = Firestore.firestore()
         //MARK: Animation
+        
         imagePhoto.layer.cornerRadius = imagePhoto.frame.size.width/2
         imagePhoto.clipsToBounds = true
         //MARK: Autentifiacion controll
@@ -41,7 +77,6 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         let db = Firestore.firestore()
         var ref: DocumentReference? = nil
         let userID = Auth.auth().currentUser?.uid ?? "Null"
-        
         db.collection("usersAuth").document(userID).collection("userInfo").whereField("UID", isEqualTo: userID).getDocuments { (snapshot, error) in
             if error != nil {
                 print(error)
@@ -49,19 +84,27 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
                 for document in (snapshot?.documents)!{
                     if let name = document.data()["userName"] as? String{
                         if let dateBirth = document.data()["dateOfBirth"] as? String{
-                        print(name)
-                        self.nameLabel?.text = name
-                        self.dateOfBirth?.text = dateBirth
-                            let age  = getAgeFromDOF(date: dateBirth)
-                            self.age?.text = "\(age.0) years"
-                            let zodiac = getSignoZodiacal(date: dateBirth)
-                            print(zodiac)
-                           
-                            
+                            if let about = document.data()["About"] as? String{
+                                
+                                print(name)
+                                self.nameLabel?.text = name
+                                self.dateOfBirth?.text = dateBirth
+                                self.aboutField?.text = about
+                                let age  = getAgeFromDOF(date: dateBirth)
+                                self.age?.text = "\(age.0) years"
+                                let zodiac = getSignoZodiacal(date: dateBirth)
+                                print(zodiac)
+                                
+                            }
+                        }
                     }
                 }
             }
+        
+        
+        //MARK: Get data from database firestore
         }
+        func loadDataforDatabase(){
             
         }
         
@@ -79,6 +122,7 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             
             return (dateComponent.year!, dateComponent.month!, dateComponent.day!)
         }
+        //MARK: Get ZODIAC whith date of birth
         func getSignoZodiacal(date:String) -> String {
             
             let f = date.components(separatedBy: ".")
@@ -205,6 +249,14 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
             print(error)
         }
     }
+    //MARK: EDIT Wish Board
+    
+    @IBAction func editWishes(_ sender: Any) {
+        wishTable.isEditing = !wishTable.isEditing
+    }
+    
+    
+    
     // ADD new PHoto profile
     @IBAction func setProfileImageButtonTapped(_ sender: Any) {
         let profileImagePicker = UIImagePickerController()
@@ -237,50 +289,32 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         
     
     //MARK: Upload photo to database
-        func upload(images: [Data], albumId: String, completion: @escaping () -> ()) {
-            let imagesCollectionRef = Firestore.firestore().collection("images")
-            let createImagesBatch = Firestore.firestore().batch()
-            var data = Data()
-            images.forEach { imageData in
-                let docRef = imagesCollectionRef.document()
-                let data = ["albumId": albumId, "dateAdded": Timestamp(date: Date()), "status": "pending"] as [String : Any]
-                createImagesBatch.setData(data, forDocument: docRef)
-            }
-            
-            createImagesBatch.commit { _ in
-                completion()
-            }
-        }
-        
-        
-    func uploadProfileImage(imageData: Data)
-    {
-        let storageReference = Storage.storage().reference()
-        let currentUser = Auth.auth().currentUser
-        let profileImageRef = storageReference.child("users").child(currentUser!.uid).child("\(currentUser!.uid)-profileImage.jpg")
+        let store = Storage.storage()
+        let storeRef = store.reference()
+        let userProfilesRef = storeRef.child("images/profiles")
+        let logoRef = storeRef.child("images/logo.png")
         var data = Data()
-        
-        let uploadMetaData = StorageMetadata()
-        uploadMetaData.contentType = "image/jpeg"
-        
-        profileImageRef.putData(imageData, metadata: uploadMetaData) { (uploadedImageMeta, error) in
-            
-//            UIActivityIndicatorView.stopAnimating()
-//            UIActivityIndicatorView.removeFromSuperview()
-//
-            if error != nil
-            {
-                print("Error took place \(String(describing: error?.localizedDescription))")
+        data = self.imagePhoto.image!.pngData()!
+
+        let userID = Auth.auth().currentUser?.uid ?? "Null"
+
+        let uploadUserProfileTask = userProfilesRef.child("\(userID).png").putData(data, metadata: nil) { (metadata, error) in
+            guard let metadata = metadata else {
+                print("Error occurred: \(error)")
                 return
-            } else {
-                
-                self.imagePhoto.image = UIImage(data: imageData)
-                
-                print("Meta data of uploaded image \(String(describing: uploadedImageMeta))")
             }
+            let downloadURL = metadata.name
+            print("download url for profile is \(metadata)")
+            self.db.collection("usersAuth").document(userID).collection("userInfo").document().setData(["imageUrl" : downloadURL!], merge: true)
         }
-    }
-    }
+        let progressObserver = uploadUserProfileTask.observe(.progress) { snapshot in
+            let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+                / Double(snapshot.progress!.totalUnitCount)
+            print(percentComplete)
+        }
+        }
+
+  
     //MARK: AUtentification controll func
     func checkPermission() {
         let photoAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
@@ -306,4 +340,5 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate,UINavigationCo
         }
     }
 }
+
 
